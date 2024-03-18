@@ -1,0 +1,382 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0045)http://6.869.csail.mit.edu/fa19/schedule.html -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<link href="https://fonts.cdnfonts.com/css/chalkduster" rel="stylesheet">
+<style>
+    @import url('https://fonts.cdnfonts.com/css/chalkduster');
+</style>
+<script src="./sm/assets/teaser-data.js"></script>
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>LoRA-Composer</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <meta name="description"
+        content="Project page for &#39;LoRA-Composer: Leveraging Low-Rank Adaptation for Multi-Concept Customization in Training-Free Diffusion Models.&#39;">
+    <link rel="icon" href="./pics/wis_logo.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>LoRA-Composer</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <meta name="description"
+        content="Project page for &#39;LoRA-Composer: Leveraging Low-Rank Adaptation for Multi-Concept Customization in Training-Free Diffusion Models.&#39;">
+    <link rel="icon" href="./sm/assets/wis_logo.jpeg">
+</head>
+
+<body>
+    <p class="title">LoRA-Composer: Leveraging Low-Rank Adaptation for Multi-Concept Customization in Training-Free Diffusion Models</p>
+    <!-- <div style="text-align: center; font-size: 20pt; margin-bottom: 15px">
+            <span>ECCV 2024</span>
+    </div> -->
+    <p class="author">
+        <span class="author"><a target="_blank" href="https://github.com/Young98CN">Yang
+                Yang<sup>1</sup></a>&nbsp;
+        <span class="author"><a target="_blank" >Wen
+                Wang<sup>1</sup>&nbsp;
+        <span class="author"><a target="_blank" >Liang
+                Peng<sup>2</sup></a>&nbsp;<sup>&nbsp;</sup></span>
+        <span class="author"><a target="_blank">Chaotian
+                Song<sup>4</sup></a>&nbsp;<sup>&nbsp;</sup></span>
+        <span class="author"><a target="_blank">Yao
+                    Chen<sup>4</sup></a>&nbsp;<sup>&nbsp;</sup></span>
+        <br><span class="author"><a target="_blank">Hengjia
+                        Li<sup>1</sup></a>&nbsp;<sup>&nbsp;</sup></span>
+        <span class="author"><a target="_blank">Xiaolong
+                        Yang<sup>3</sup></a>&nbsp;<sup>&nbsp;</sup></span>
+        <span class="author"><a target="_blank">Qinglin
+                        Lu<sup>3</sup></a>&nbsp;<sup>&nbsp;</sup></span>
+        <span class="author"><a target="_blank">Deng
+                        Cai<sup>1</sup></a>&nbsp;<sup>&nbsp;</sup></span>
+        <span class="author"><a target="_blank">Wei
+                    Liu<sup>3</sup></a>&nbsp;<sup>&nbsp;</sup></span>
+        <span class="author"><a target="_blank">Boxi
+                    Wu<sup>4</sup></a>&nbsp;<sup>&nbsp;</sup></span>
+                        
+    </p>
+    <table class="affiliations">
+        <tbody align="center">
+            <tr>
+                <td style="text-align: left; width: 25%">
+                    <sup>1</sup>State Key Lab of CAD&CG, Zhejiang University, China</td>
+                <td style="text-align: left; width:15%; ">&nbsp;<sup>&nbsp;</sup>&nbsp;<sup>2</sup>Fabu Inc. China</td>
+                <td style="text-align: left; width:15%; ">&nbsp;<sup>&nbsp;</sup>&nbsp;<sup>3</sup>Tencent Inc. China</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; width: 25%">
+                    <sup>4</sup>The School of Software Technology, Zhejiang University, China</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="menu">
+        <a style="color: steelblue" href="https://arxiv.org/abs/2305.18292">[Paper (arXiv)]</a>
+        <a style="color: steelblue" href="" >[Code (Coming soon)]</a>
+    </p>
+
+    <div style="text-align: center">
+        <p style="text-align: justify; display: flex; justify-content: center; max-width: 750px; margin:auto; background-color:lightgoldenrodyellow">
+            📖<strong>TL;DR</strong>: LoRA-Composer allowing users to generate images with fewer conditions and readily accessible LoRA techniques (only require prompt and layout condition).
+        <p class="section">&nbsp;</p>
+    </div>
+
+    <div class="container">
+        <div style="text-align: center">
+            <!-- <p style="text-align: center;"><span class="section"><b>Decentralized Multi-Concept Customization by Mix-of-Show</b></span></p>
+            <video width="100%" muted="" loop="" autoplay=""><source src="./assets/Overview_screen.mp4" type="video/mp4">
+                Your browser does not support the video tag.</video>
+            <br/><br/> -->
+            <p style="text-align: justify; display: flex; justify-content: center; max-width: 800px; margin:auto">
+                For example, we extend following 16 customized concepts. &#128071; &#128071; &#128071;
+            <p class="section">&nbsp;</p>
+            <img src="sm/assets/fig/dataset.png" alt="" width="70%" style="max-width: 100%; height: auto;" />
+            <br/><br/>
+        </div>
+
+        <table width="1080px" height="70px" border="0" align="center">
+            <tbody>
+                <tr>
+                    <div id="imageCarousel" class="carousel slide teaser-carousel" data-ride="carousel" data-interval="5000">
+                        <div class="carousel-inner">
+                            <!-- Five concepts -->
+                            <div class="carousel-item active">
+                                <div>
+                                    <img id="layout" class="teaser-img" src="./sm/assets/lora_composer_res/five_concepts/5real_layout.png" />
+                                    <span style="font-size: 150%;">→</span>
+                                    <img id="result-5concepts" class="teaser-img" src="./sm/assets/lora_composer_res/five_concepts/15958.png" />
+                                </div>
+                                <br />
+                                <div class="caption">
+                                    <span style="font-size: 150%; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Five Concepts</span>
+                                    </div>
+                                <br />
+                                <div>
+                                    <div onclick="toggle_prompt('5real', ['5real2', '5anime', '5anime2'], 'layout','result-5concepts')" class="caption caption-active" id="5real">
+                                        <span class="real-text">V<sup style="font-style: italic">potter</sup></span>, <span class="real-text">V<sup style="font-style: italic">dogA</sup></span>, <span class="real-text">V<sup style="font-style: italic">cat</sup></span> and <span class="real-text">V<sup style="font-style: italic">hermione</sup></span>, at <span class="bg-text">V<sup style="font-style: italic">rock</sup></span></div>
+                                    <br />
+                                    <div onclick="toggle_prompt('5real2', ['5real', '5anime', '5anime2'], 'layout','result-5concepts')" class="caption" id="5real2">
+                                        <span class="real-text">V<sup style="font-style: italic">bengio</sup></span>, <span class="real-text">V<sup style="font-style: italic">dogA</sup></span>, <span class="real-text">V<sup style="font-style: italic">cat</sup></span> and <span class="real-text">V<sup style="font-style: italic">hinton</sup></span>, at <span class="bg-text">V<sup style="font-style: italic">rock</sup></span></div>
+                                    <br />
+                                    <div onclick="toggle_prompt('5anime', ['5real2', '5real', '5anime2'], 'layout','result-5concepts')" class="caption" id="5anime">
+                                        <span class="anime-text">V<sup style="font-style: italic">hina</sup></span>, <span class="anime-text">V<sup style="font-style: italic">tezuka</sup></span>, <span class="anime-text">V<sup style="font-style: italic">ai</sup></span>, <span class="anime-text">V<sup style="font-style: italic">son</sup></span> and <span class="anime-text">V<sup style="font-style: italic">kaori</sup></span>, near a lake </div>
+                                    <br />
+                                    <div onclick="toggle_prompt('5anime2', ['5real2', '5anime', '5real'], 'layout','result-5concepts')" class="caption" id="5anime2">
+                                        <span class="anime-text">V<sup style="font-style: italic">hina</sup></span>, <span class="anime-text">V<sup style="font-style: italic">misuha</sup></span>, <span class="anime-text">V<sup style="font-style: italic">ai</sup></span>, <span class="anime-text">V<sup style="font-style: italic">son</sup></span> and <span class="anime-text">V<sup style="font-style: italic">kaori</sup></span>, near a lake</div>
+                                </div>
+                            </div>
+
+                            
+                            <!-- Four concepts -->
+                            <div class="carousel-item inactive">
+                                <div>
+                                    <img id="layout4" class="teaser-img" src="sm/assets/lora_composer_res/four_concepts/4real_layout.png" />
+                                    <span style="font-size: 150%;">→</span>
+                                    <img id="result-4concepts" class="teaser-img" src="sm/assets/lora_composer_res/four_concepts/4real2_12999.png" />
+                                </div>
+                                <br />
+                                <div class="caption">
+                                    <span style="font-size: 150%; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Four Concepts</span>
+                                    </div>
+                                <br />
+                                <div>
+                                    <div onclick="toggle_prompt('4real', ['4real2', '4anime'], 'layout4','result-4concepts')" class="caption caption-active" id="4real">
+                                        <span class="real-text">V<sup style="font-style: italic">potter</sup></span>, <span class="real-text">V<sup style="font-style: italic">dogA</sup></span>, <span class="real-text">V<sup style="font-style: italic">hinton</sup></span> and <span class="real-text">V<sup style="font-style: italic">lecun</sup></span>, near a lake</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('4real2', ['4real', '4anime'], 'layout4','result-4concepts')" class="caption" id="4real2">
+                                        <span class="real-text">V<sup style="font-style: italic">hermione</sup></span>, <span class="real-text">V<sup style="font-style: italic">cat</sup></span>, <span class="real-text">V<sup style="font-style: italic">hinton</sup></span> and <span class="real-text">V<sup style="font-style: italic">potter</sup></span>, near a lake</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('4anime', ['4real2', '4real'], 'layout4','result-4concepts')" class="caption" id="4anime">
+                                        <span class="anime-text">V<sup style="font-style: italic">tezuka</sup></span>, <span class="anime-text">V<sup style="font-style: italic">ai</sup></span>, <span class="anime-text">V<sup style="font-style: italic">kaori</sup></span> and <span class="anime-text">V<sup style="font-style: italic">son</sup></span>, near a mountain </div>
+                                    <br />
+                                    
+                                </div>
+                            </div>
+
+                            <!-- Three concepts -->
+                            <div class="carousel-item inactive">
+                                <div>
+                                    <img id="layout3" class="teaser-img" src="sm/assets/lora_composer_res/three_concepts/2dog+1cat_layout.png" />
+                                    <span style="font-size: 150%;">→</span>
+                                    <img id="result-3concepts" class="teaser-img" src="sm/assets/lora_composer_res/three_concepts/paper_14297.png" />
+                                </div>
+                                <br />
+                                <div class="caption">
+                                    <span style="font-size: 150%; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Three Concepts</span>
+                                    </div>
+                                <br />
+                                <div>
+                                    <div onclick="toggle_prompt('3real', ['3real2', '3anime2', 'shake'], 'layout3','result-3concepts')" class="caption caption-active" id="3real">
+                                        <span class="real-text">V<sup style="font-style: italic">dogB</sup></span>, <span class="real-text">V<sup style="font-style: italic">cat</sup></span> and <span class="real-text">V<sup style="font-style: italic">dogA</sup></span>, in the forest</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('shake', ['3real2', '3anime2', '3real'], 'layout3','result-3concepts')" class="caption" id="shake">
+                                        <span class="real-text">V<sup style="font-style: italic">potter</sup></span> and <span class="real-text">V<sup style="font-style: italic">hermione</sup></span> shaking hands, at <span class="bg-text">V<sup style="font-style: italic">pyramid</sup></span></div>
+                                    <br />
+                                    <div onclick="toggle_prompt('3real2', ['3real', '3anime2', 'shake'], 'layout3','result-3concepts')" class="caption" id="3real2">
+                                        <span class="real-text">V<sup style="font-style: italic">bengio</sup></span>, <span class="real-text">V<sup style="font-style: italic">lecun</sup></span> and <span class="real-text">V<sup style="font-style: italic">hinton</sup></span>, near a lake</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('3anime2', ['3real2', '3real', 'shake'], 'layout3','result-3concepts')" class="caption" id="3anime2">
+                                        <span class="anime-text">V<sup style="font-style: italic">tezuka</sup></span> in white suit, <span class="anime-text">V<sup style="font-style: italic">ai</sup></span> hodding teddy bear, and <span class="anime-text">V<sup style="font-style: italic">kaori</sup></span> wear a hat, near a lake</div>
+                                </div>
+                            </div>
+
+                            <!-- Two concepts -->
+                            <div class="carousel-item inactive">
+                                <div>
+                                    <img id="layout2" class="teaser-img" src="sm/assets/lora_composer_res/two_concepts/2real_layout.png" />
+                                    <span style="font-size: 150%;">→</span>
+                                    <img id="result-2concepts" class="teaser-img" src="sm/assets/lora_composer_res/two_concepts/lora_composer_9023.png" />
+                                </div>
+                                <br />
+                                <div class="caption">
+                                    <span style="font-size: 150%; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Two Concepts</span>
+                                    </div>
+                                <br />
+                                <div>
+                                    <div onclick="toggle_prompt('2real', ['2real2', '2anime', '2anime2'], 'layout2','result-2concepts')" class="caption caption-active" id="2real">
+                                        <span class="real-text">V<sup style="font-style: italic">bengio</sup></span> and <span class="real-text">V<sup style="font-style: italic">potter</sup></span>, simple background</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('2real2', ['2real', '2anime', '2anime2'], 'layout2','result-2concepts')" class="caption" id="2real2">
+                                        <span class="real-text">V<sup style="font-style: italic">bengio</sup></span>, <span class="real-text">V<sup style="font-style: italic">hinton</sup></span> and <span class="real-text">V<sup style="font-style: italic">lecun</sup></span>, in front of eiffel tower</div>
+                                    <br />
+                                    <div onclick="toggle_prompt('2anime', ['2real2', '2real', '2anime2'], 'layout2','result-2concepts')" class="caption" id="2anime">
+                                        <span class="anime-text">V<sup style="font-style: italic">tezuka</sup></span> and <span class="anime-text">V<sup style="font-style: italic">son</sup></span>, near a lake </div>
+                                    <br />
+                                    <div onclick="toggle_prompt('2anime2', ['2real2', '2anime', '2real'], 'layout2','result-2concepts')" class="caption" id="2anime2">
+                                        <span class="anime-text">V<sup style="font-style: italic">ai</sup></span> and <span class="anime-text">V<sup style="font-style: italic">kaori</sup></span>, near a lake</div>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                        <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                            <div class="slider-navigation-previous">
+                                <svg viewBox="0 0 50 80" xml:space="preserve">
+                                    <polyline fill="white" stroke-width=".5em" stroke-linecap="round"
+                                        stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 ">
+                                    </polyline>
+                                </svg>
+                            </div>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                            <div class="slider-navigation-next">
+                                <svg viewBox="0 0 50 80" xml:space="preserve">
+                                    <polyline fill="white" stroke-width=".5em" stroke-linecap="round"
+                                        stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 ">
+                                    </polyline>
+                                </svg>
+                            </div>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </tr>
+                <tr> <br /> </tr>
+                <!-- <tr>
+                    <td style="text-align: left; width: 17%"><i>*Equal contribution.</i></td>
+                </tr> -->
+                <tr align="center"></tr>
+            </tbody>
+        </table>
+
+        &nbsp;
+
+        <p><span class="section"><b>Abstract</b></span> </p>
+        <p> Customization generation techniques have significantly advanced the synthesis of specific concepts across varied contexts. Multi-concept customization emerges as the challenging task within this domain. Existing approaches often rely on training a Low-Rank Adaptations (LoRA) fusion matrix of multiple LoRA to merge various concepts into a single image. However, we identify this straightforward method faces two major challenges: 1) concept confusion, which occurs when the model cannot preserve distinct individual characteristics, and 2) concept vanishing, where the model fails to generate the intended subjects. To address these issues, we introduce LoRA-Composer, a training-free framework designed for seamlessly integrating multiple LoRAs, thereby enhancing the harmony among different concepts within generated images.
+            LoRA-Composer addresses concept vanishing through Concept Injection Constraints, enhancing concept visibility via an expanded cross-attention mechanism. To combat concept confusion, Concept Isolation Constraints are introduced, refining the self-attention computation. Furthermore, Latent Re-initialization is proposed to effectively stimulate concept-specific latent within designated regions. Our extensive testing showcases a notable enhancement in LoRA-Composer's performance compared to standard baselines, especially when eliminating the image-based conditions like canny edge or pose estimations.
+        <p class="section">&nbsp;</p>
+        
+        <p style="text-align: center;"><span class="section"><b>Main Observation</b></span></p>
+        <div style="text-align: center">
+            <img src="sm/assets/fig/main_obs.png" alt="" width="1080px" style="max-width: 100%; height: auto;" />
+        </div>
+        <p style="text-align: justify">
+            Our method distinguishes itself from <a href="https://showlab.github.io/Mix-of-Show/">Mix-of-Show</a> eliminating the image-based conditions (the sketch shown above) and the requirement to train a LoRA fusion matrix. Furthermore, we highlight the limitations of Mix-of-Show through the demonstration of failure cases. In the top row, we illustrate two key issues: concept vanishing, marked by the absence of intended concepts in the image, and concept confusion, where the model mistakenly merges and confuses distinct concepts
+        </p>
+
+        <p style="text-align: center;"><span class="section"><b>Method Overview</b></span></p>
+        <div style="text-align: center">
+            <img src="sm/assets/fig/method.png" alt="" width="1080px" style="max-width: 100%; height: auto;" />
+        </div>
+        <p style="text-align: justify">
+            LoRA-Composer utilizes textual, layout, and image-based conditions (optional) to integrate and customize multiple concepts through Latent Re-initialization for precise layout generation. 
+            <br>
+            Modifications to the Stable Diffusion U-Net in LoRA-Composer Block include concept isolation in self-attention and Concept Injection in cross-attention, optimizing for accurate concept placement while preventing feature leakage across concepts.
+        </p>
+
+        <p class="section">&nbsp;</p>
+
+        <div style="text-align: center">
+            <p style="text-align: center; font-size: 150%">Three Highlights of LoRA-Composer</p>
+            <img src="sm/assets/fig/main_fig.png" alt="" width="80%" style="max-width: 100%; height: auto;" />
+        </div>
+        </br>
+        <div style="text-align: center">
+            <p style="text-align: center; font-size: 150%">Multi-Concept Generation (without image-based conditions)</p>
+            <img src="sm/assets/fig/comparison.png" alt="" width="80%" style="max-width: 100%; height: auto;" />
+        </div>
+
+        </br>
+        <div style="text-align: center">
+            <p style="text-align: center; font-size: 150%">Multi-Concept Generation (with image-based conditions)</p>
+            <img src="sm/assets/fig/condition_comparison.png" alt="" width="80%" style="max-width: 100%; height: auto;" />
+        </div>
+
+        <p style="text-align: center"> 
+            The yellow box emphasizes the issue of concept confusion, while red boxes underscore instances of concept vanishing.
+        </p>
+
+        <p class="section">&nbsp;</p>
+
+        <p class="section" id="bibtex"><b>Bibtex</b></p>
+        <table border="0">
+            <tbody>
+                <pre style=" display: block;
+  background: #eee;
+  white-space: pre;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  min-width: 100px;
+  border-radius: 20px;
+  ">
+
+    @InProceedings{Tumanyan_2023_CVPR,
+        author    = {Tumanyan, Narek and Geyer, Michal and Bagon, Shai and Dekel, Tali},
+        title     = {LoRA-Composer: Leveraging Low-Rank Adaptation for Multi-Concept Customization in Training-Free Diffusion Models},
+        booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+        month     = {June},
+        year      = {2023},
+        pages     = {1921-1930}
+    }       
+			  </pre>
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="footer">
+        <p style="text-align: center;">
+            This page was adapted from <a href="https://showlab.github.io/Mix-of-Show/">this</a> source code.
+        </p>
+    </footer>
+
+
+</body>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WLX2Z5QLG8');
+ </script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script type="text/javascript">
+    $(document).ready(function () {
+
+        if (localStorage.getItem("my_app_name_here-quote-scroll") != null) {
+            $(window).scrollTop(localStorage.getItem("my_app_name_here-quote-scroll"));
+        }
+
+        $(window).on("scroll", function() {
+            localStorage.setItem("my_app_name_here-quote-scroll", $(window).scrollTop());
+        });
+
+      });
+ </script>
+
+ <script>
+    function prompt_on(prompt_element) {
+        prompt_element.classList.add("caption-active");
+    }
+
+    function prompt_off(prompt_element) {
+        prompt_element.classList.remove("caption-active");
+    }
+
+    function toggle_prompt(active_prompt_id, inactive_prompt_ids, condition_id, result_id) {
+        let active_prompt = document.getElementById(active_prompt_id);
+        prompt_on(active_prompt);
+        for (let i = 0; i < inactive_prompt_ids.length; i++) {
+            let inactive_prompt = document.getElementById(inactive_prompt_ids[i]);
+            prompt_off(inactive_prompt);
+        }
+
+        let condition = document.getElementById(condition_id);
+        condition.src = file_paths[active_prompt_id][1];
+
+        let result = document.getElementById(result_id);
+        result.src = file_paths[active_prompt_id][0];
+    }
+ </script>
+
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>
