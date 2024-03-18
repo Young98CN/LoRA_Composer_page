@@ -1,2 +1,1 @@
-# pnp-diffusion-github-io
-Plug-and-Play Diffusion features.
+# LoRA_Composer project page
